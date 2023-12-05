@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>YANKENPO</title>
+</head>
+<body>
+  <script>
+    function getComputerChoice(){
+      function randomNumber(max){
+        return Math.floor(Math.random()*max);
+      }
+      let number=randomNumber(3);
+      if (number === 0){
+        return "Rock";
+      }
+      else if (number === 1){
+        return "Paper";
+      }
+      else{
+        return "Scissors";
+      }
+    }
+    function playRound(playerSelection, computerSelection) {
+      let choice=playerSelection.toLowerCase();
+      if (choice==="rock" && computerSelection==="Scissors"){
+        return "You Win!";
+      }
+      else if (choice==="paper" && computerSelection==="Scissors"){
+        return "You Lose!";
+      }
+      else if ((choice==="scissors" && computerSelection==="Scissors")||
+      (choice==="paper" && computerSelection==="Paper")||
+      (choice==="rock" && computerSelection==="Rock")){
+        return "Its a tie";
+      }
+      else if (choice==="rock" && computerSelection==="Paper"){
+        return "You Lose!";
+      }
+      else if (choice==="scissors" && computerSelection==="Paper"){
+        return "You Win!";
+      }
+      else if (choice==="paper" && computerSelection==="Rock"){
+        return "You Win!";
+      }
+      else if (choice==="scissors" && computerSelection==="Rock"){
+        return "You Lose!";
+      }
+    }
+
+    
+    
+    function game(){
+      let result;
+      let x=0,y=0,z=0;
+      for (let i=1;i<6;i++){
+        let input = prompt("Rock, Paper o Scissors??");
+        let computer=getComputerChoice();
+        console.log(playRound(input,computer));
+        let result=playRound(input,computer);
+        if (result === "You Win!"){
+          console.log(`${input.toUpperCase()} beats ${computer.toUpperCase()}`);
+          x+=1;
+        }
+        else if (result==="You Lose!"){
+          console.log(`${computer.toUpperCase()} beats ${input.toUpperCase()}`);
+          y+=1;
+        }
+        else {
+          z+=1;
+        }
+      }
+      if (x>y){
+        console.log("YOU'RE THE WINNER");
+      }
+      else if (y>x){
+        console.log("YOU'RE THE LOSER");
+      }
+      else{
+        console.log("YOU TIED");
+      }  
+    }
+    game();
+  </script>
+  
+</body>
+</html>
