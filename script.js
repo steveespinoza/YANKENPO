@@ -41,7 +41,7 @@ function getComputerChoice(){
   }
 
   
-  
+//Function created for the user to input his choic through keyboard
   function game(){
     
     let x=0,y=0,z=0;
@@ -74,7 +74,7 @@ function getComputerChoice(){
   }
 
   
-
+//Event created for the user to input his choice through the browser
 const buttons = document.querySelectorAll('button');
 let computerpoints=0;
 let userpoints=0;
@@ -88,10 +88,6 @@ buttons.forEach((button) => {
         const playagain = document.createElement('button');
         playagain.classList.add('reload');
         playagain.textContent = 'PLAY AGAIN!';
-        const score1 = document.createElement('div');
-        score1.classList.add('score1');
-        const score2 = document.createElement('div');
-        score2.classList.add('score2');
         const score=document.querySelector('.score');
         if(button.id == "rock"){
           content.textContent = playRound(button.id,computer);
